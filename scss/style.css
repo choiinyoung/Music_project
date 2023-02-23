@@ -21,6 +21,7 @@ figure {
   position: relative;
   width: 100%;
   height: 100vh;
+  overflow: hidden;
   background: linear-gradient(25deg, rgb(17, 224, 207), rgba(190, 186, 186, 0.404));
 }
 figure h1 {
@@ -52,7 +53,7 @@ figure .menu {
 figure section {
   position: absolute;
   width: 20vw;
-  height: 65vh;
+  height: 70vh;
   left: 50%;
   top: 150%;
   margin-left: -10vw;
@@ -105,6 +106,12 @@ figure section article .inner .pic::before {
   transform: translateY(10%);
   filter: blur(20px) brightness(130%);
 }
+figure section article .inner .pic.on::before {
+  animation: rotation2 4s linear infinite;
+}
+figure section article .inner .pic.on::after {
+  animation: rotation 4s linear infinite;
+}
 figure section article .inner .pic .dot {
   position: absolute;
   width: 2.5vw;
@@ -116,6 +123,56 @@ figure section article .inner .pic .dot {
   z-index: 3;
   background-color: #fff;
   box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1);
+}
+figure section article .inner .text {
+  position: absolute;
+  width: 15vw;
+  text-align: center;
+  margin-top: 60px;
+  letter-spacing: 1px;
+}
+figure section article .inner .text h2 {
+  margin-bottom: 20px;
+}
+figure section article .inner .text p {
+  color: #777;
+}
+figure section article .inner .text .control {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 60px;
+}
+figure section article .inner .text .control li {
+  cursor: pointer;
+  opacity: 0.6;
+  transition: 0.5s;
+}
+figure section article .inner .text .control li.play {
+  transform: scale(1.5);
+  opacity: 0.8;
+}
+figure section article .inner .text .control li:hover {
+  transform: scale(1.5);
+  opacity: 1;
+}
+figure section article .inner .text .control li:hover.play {
+  transform: scale(2);
+}
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotation2 {
+  0% {
+    transform: translateY(10%) rotate(0deg);
+  }
+  100% {
+    transform: translateY(10%) rotate(360deg);
+  }
 }
 figure .btnPrev {
   width: 60px;

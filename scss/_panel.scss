@@ -1,7 +1,7 @@
 section {
   position: absolute;
   width: 20vw;
-  height: 65vh;
+  height: 70vh;
   left: 50%;
   top: 150%;
   margin-left: -10vw;
@@ -60,6 +60,14 @@ section {
           filter: blur(20px) brightness(130%);
         }
 
+        &.on {
+          &::before{
+            animation: rotation2 4s linear infinite;
+          }
+          &::after{
+            animation: rotation 4s linear infinite;
+          }
+        }
         .dot {
           position: absolute;
           width: 2.5vw;
@@ -73,7 +81,67 @@ section {
           box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1);
         }
       }
-    }
 
+      .text {
+        position: absolute;
+        width: 15vw;
+        text-align: center;
+        margin-top: 60px;
+        letter-spacing: 1px;
+
+        h2 {
+          margin-bottom: 20px;
+        }
+
+        p {
+          color: #777;
+        }
+
+        .control {
+          display: flex;
+          justify-content: space-around;
+          margin-top: 60px;
+
+          li {
+            cursor: pointer;
+            opacity: 0.6;
+            transition: 0.5s;
+
+            &.play {
+              transform: scale(1.5);
+              opacity: 0.8;
+            }
+
+            &:hover {
+              transform: scale(1.5);
+              opacity: 1;
+
+              &.play {
+                transform: scale(2);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// 키프레임 정의
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotation2 {
+  0% {
+    transform: translateY(10%) rotate(0deg);
+  }
+  100% {
+    transform: translateY(10%) rotate(360deg);
   }
 }
